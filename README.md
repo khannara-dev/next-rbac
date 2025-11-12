@@ -527,10 +527,6 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for det
 
 MIT © [Khannara Phay](https://github.com/khannara)
 
-## 🙏 Acknowledgments
-
-Built with [Claude Code](https://claude.com/claude-code)
-
 ## 📞 Support
 
 - 📦 [npm package](https://www.npmjs.com/package/@khannara/next-rbac)
