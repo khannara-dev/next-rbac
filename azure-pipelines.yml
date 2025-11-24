@@ -28,22 +28,21 @@ pool:
 variables:
   CI: true
 
-# Multi-version Node.js testing strategy
-strategy:
-  matrix:
-    Node18:
-      NODE_VERSION: '18.x'
-    Node20:
-      NODE_VERSION: '20.x'
-    Node22:
-      NODE_VERSION: '22.x'
-
 stages:
   - stage: Test
-    displayName: 'Test on Node.js $(NODE_VERSION)'
+    displayName: 'Test on Multiple Node.js Versions'
     jobs:
       - job: QualityGates
         displayName: 'Quality Gates'
+        # Multi-version Node.js testing strategy
+        strategy:
+          matrix:
+            Node18:
+              NODE_VERSION: '18.x'
+            Node20:
+              NODE_VERSION: '20.x'
+            Node22:
+              NODE_VERSION: '22.x'
         steps:
           - task: NodeTool@0
             displayName: 'Install Node.js $(NODE_VERSION)'
