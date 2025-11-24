@@ -138,7 +138,7 @@ export class PrismaAdapter extends BaseAdapter {
           updated_at: role.updated_at,
           deleted_at: role[this.deletedAtField],
         };
-      } catch (error) {
+      } catch {
         // If deleted_at field doesn't exist, try without it
         const role = await this.prisma[this.roleModel].findUnique({
           where: {
