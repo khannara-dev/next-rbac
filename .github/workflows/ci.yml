@@ -13,10 +13,8 @@ concurrency:
 jobs:
   ci:
     name: CI Pipeline
-    runs-on: [self-hosted, Windows, X64]
-    defaults:
-      run:
-        shell: powershell
+    # Use GitHub-hosted runners for public repos (org self-hosted runners don't allow public repos)
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -54,10 +52,7 @@ jobs:
     name: Publish to npm
     needs: ci
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: [self-hosted, Windows, X64]
-    defaults:
-      run:
-        shell: powershell
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
