@@ -1,0 +1,21 @@
+name: Enforce develop-to-main
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-source-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        run: |
+          if [ "${{ github.head_ref }}" \!= "develop" ]; then
+            echo "::error::PRs to main must come from develop branch only."
+            echo "::error::Source branch: ${{ github.head_ref }}"
+            echo "::error::Please merge your changes to develop first, then create a PR from develop to main."
+            exit 1
+          fi
+          echo "Source branch is develop. Proceeding with merge."
+
