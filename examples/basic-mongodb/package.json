@@ -14,7 +14,7 @@
     "@khannara/next-rbac": "^0.2.0",
     "bcryptjs": "^2.4.3",
     "mongodb": "^6.0.0",
-    "next": "^15.5.9",
+    "next": "^16.1.5",
     "next-auth": "^4.24.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
